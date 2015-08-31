@@ -1,0 +1,64 @@
+﻿
+<div class="row">
+
+    <div class="col-md-12">
+        <kendo-grid options="NotificacionesGridOpts">
+
+        </kendo-grid>
+    </div>
+
+</div>
+
+<script type="text/x-kendo-template" id="template">
+    <div class="k-edit-form-container">
+
+        <div class="k-edit-label"><label for="aplicacionId">Aplicacion</label></div>
+        <div data-container-for="aplicacionId" class="k-edit-field">
+            <input k-on-change="dataItem.dirty=true" kendo-drop-down-list k-options="AplicacionOptions" data-bind="value:aplicacionId" required="required" name="aplicacionId" type="text"/>
+        </div>
+
+        <div class="k-edit-label"><label for="name">Titulo</label></div>
+        <div data-container-for="titulo" class="k-edit-field">
+            <input data-bind="value:titulo" required="required" name="titulo" class="k-input k-textbox" type="text">
+        </div>
+
+        <div class="k-edit-label"><label for="link">Link</label></div>
+        <div data-container-for="link" class="k-edit-field">
+            <input data-bind="value:link" required="required" name="link" class="k-input k-textbox" type="text">
+        </div>
+
+        <div class="k-edit-label"><label for="mensaje">Mensaje</label></div>
+        <div data-container-for="mensaje" class="k-edit-field">
+            <textarea data-bind="value:nota" required="required" name="nota" class="k-input k-textbox" type="text"></textarea>
+        </div>
+
+        <div class="k-edit-label"><label for="usuarios">Usuarios</label></div>
+        <div data-container-for="usuarios" class="k-edit-field">
+            <select  kendo-multi-select k-options="DomainUsersOptions"  data-bind="value:usuarios"></select>
+        </div>
+
+        <div class="k-edit-label"><label for="usuarios">Tipo</label></div>
+        <div data-container-for="idTipo" class="k-edit-field">
+            <input k-on-change="dataItem.dirty=true" kendo-dropdownlist k-options="TipoNotificacionOptions" data-bind="value:idTipo" required="required" name="idTipo" type="text">
+        </div>
+
+
+        <div class="k-edit-label"><label for="usuarios">Tipo Vigencia</label></div>
+        <div data-container-for="idTipoVigencia" class="k-edit-field">
+            <input  k-on-change="dataItem.dirty=true" kendo-dropdownlist k-options="TipoVigenciaOptions" data-bind="value:idTipoVigencia" required="required" name="idTipoVigencia" class="k-autocomplete" type="text">
+        </div>
+
+
+        <div class="k-edit-label"><label for="vigencia">Vigencia</label></div>
+        <div data-container-for="vigencia" class="k-edit-field">            
+            <input k-on-change="dataItem.dirty=true" kendo-numeric-text-box data-bind="value:vigencia" required="required" name="vigencia" type="text">
+            <span style="display: none;" data-for="vigencia" class="k-invalid-msg"></span>
+        </div>
+
+        <div class="k-edit-label"><label for="activo">Activo</label></div>
+        <div data-container-for="activo" class="k-edit-field">
+            <input data-bind="checked:activo" data-type="boolean" required="required" name="activo" type="checkbox">
+        </div>
+
+    </div>
+</script>

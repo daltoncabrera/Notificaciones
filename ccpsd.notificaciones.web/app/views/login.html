@@ -1,0 +1,10 @@
+﻿
+<form class="form-login" role="form">    
+    <input type="text" class="form-control" placeholder="Username" data-ng-model="loginData.userName" required autofocus>
+    <input type="password" class="form-control" placeholder="Password" data-ng-model="loginData.password" required>
+    <!--<input type="checkbox" data-ng-model="loginData.useRefreshTokens"><strong> Use Refresh Tokens</strong>-->
+    <button class="btn btn-md btn-info btn-block" type="submit" data-ng-click="login()">Login</button>
+    <div data-ng-hide="message == ''" class="alert alert-danger">
+        {{message}}
+    </div>
+</form>
