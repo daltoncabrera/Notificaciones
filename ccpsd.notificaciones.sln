@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ccpsd.notificaciones.servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ccpsd.notificaciones.core", "ccpsd.notificaciones.core\ccpsd.notificaciones.core.csproj", "{BD0A41E7-0F8B-4827-A495-E5238D132DE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ccpsd.notificaciones.WinApiWinTest", "ccpsd.notificaciones.WinApiWinTest\ccpsd.notificaciones.WinApiWinTest.csproj", "{9B5B3604-B2DD-4946-B296-B4A21C25AA23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ccpsd.notificaciones.ApiWinTest", "ccpsd.notificaciones.ApiWinTest\ccpsd.notificaciones.ApiWinTest.csproj", "{9B5B3604-B2DD-4946-B296-B4A21C25AA23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
