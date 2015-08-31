@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ccpsd.notificaciones.web", "ccpsd.notificaciones.web\ccpsd.notificaciones.web.csproj", "{23DFCFD5-B158-4C0D-9C31-5E9CB64C64CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ccpsd.notificaciones.service", "ccpsd.notificaciones.service\ccpsd.notificaciones.service.csproj", "{2BD61D7E-FA7A-4B1B-9050-04EEE68A8765}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ccpsd.notificaciones.client", "ccpsd.notificaciones.client\ccpsd.notificaciones.client.csproj", "{2BD61D7E-FA7A-4B1B-9050-04EEE68A8765}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ccpsd.notificaciones.core", "ccpsd.notificaciones.core\ccpsd.notificaciones.core.csproj", "{BD0A41E7-0F8B-4827-A495-E5238D132DE4}"
 EndProject
