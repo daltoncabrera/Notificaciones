@@ -81,12 +81,13 @@ namespace ccpsd.notificaciones.client
         static void SettingDlg_OnNotificacionShown(int notiLogId)
         {
            
-             _signalCliente.RegistrarLecturaNotificacion(notiLogId, _CurrentUser, string.Empty);
+             //_signalCliente.RegistrarLecturaNotificacion(notiLogId, _CurrentUser, string.Empty);
         }
 
         static void SettingDlg_OnCloseNotificacion(CloseReason closeReason, int notiLogId)
         {
-            //_signalCliente.RegistrarLecturaNotificacion(notiLogId, _CurrentUser, string.Empty);
+            if(closeReason == CloseReason.UserClosing)
+                _signalCliente.RegistrarLecturaNotificacion(notiLogId, _CurrentUser, string.Empty);
         }
 
         static void _signalCliente_OnRecibirNotificaciones(NotificacionesLogModel notiModel)

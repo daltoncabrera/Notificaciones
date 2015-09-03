@@ -167,14 +167,22 @@ namespace ccpsd.notificaciones.client
 
         private void btnSaveAndConnect_Click(object sender, EventArgs e)
         {
-            var oldServer = ConfigReader.GetServerUrl();
-            if(oldServer != textBox1.Text)
+            try
             {
-                ConfigReader.SaveServerUrl(textBox1.Text);
-            }
+                var oldServer = ConfigReader.GetServerUrl();
+                if (oldServer != textBox1.Text)
+                {
+                    ConfigReader.SaveServerUrl(textBox1.Text);
+                }
 
-            Application.Restart();
-            Environment.Exit(0);
+                Utils.RestarCurrentApp();
+                Environment.Exit(0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No tiene permisos para configurar el cliente, favor contacte con un administrador...");
+            }
+           
         }
 
         private void checkBoxLogActive_CheckedChanged(object sender, EventArgs e)

@@ -9,7 +9,6 @@ namespace ccpsd.notificaciones.core
     public class CreateUserBindingModel
     {
         [Required]
-        [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
@@ -37,7 +36,6 @@ namespace ccpsd.notificaciones.core
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -58,7 +56,6 @@ namespace ccpsd.notificaciones.core
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     
     }

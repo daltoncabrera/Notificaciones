@@ -5,7 +5,7 @@
 #define MyAppVersion "0.1"
 #define MyAppPublisher "CCPSD"
 #define MyAppURL "http://www.camarasantodomingo.do/"
-#define MyAppExeName "ccpsd.notificaciones.service.exe"
+#define MyAppExeName "ccpsd.notificaciones.client.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -21,7 +21,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-OutputDir=C:\Users\dcabrera\Desktop\New folder
+OutputDir=C:\WorkingDir\ccpsd.notificaciones\setup
 OutputBaseFilename=CCPSDNotificacionesSetup
 Compression=lzma
 SolidCompression=yes
@@ -36,17 +36,15 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\ccpsd.notificaciones.service.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\ccpsd.notificaciones.core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\ccpsd.notificaciones.service.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\Interop.COMAdmin.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\Interop.SensEvents.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\Microsoft.AspNet.SignalR.Client.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\Microsoft.AspNet.SignalR.Client.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\Microsoft.AspNet.SignalR.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\Microsoft.AspNet.SignalR.Core.xml"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.service\bin\Release\Owin.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.client\bin\Release\ccpsd.notificaciones.client.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.client\bin\Release\ccpsd.notificaciones.core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.client\bin\Release\ccpsd.notificaciones.client.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.client\bin\Release\Interop.COMAdmin.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.client\bin\Release\Interop.SensEvents.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.client\bin\Release\Microsoft.AspNet.SignalR.Client.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.client\bin\Release\Microsoft.AspNet.SignalR.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\WorkingDir\ccpsd.notificaciones\ccpsd.notificaciones.client\bin\Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

@@ -77,7 +77,7 @@
             this.btnSaveAndConnect.Name = "btnSaveAndConnect";
             this.btnSaveAndConnect.Size = new System.Drawing.Size(114, 23);
             this.btnSaveAndConnect.TabIndex = 4;
-            this.btnSaveAndConnect.Text = "Guardar/Reconectar";
+            this.btnSaveAndConnect.Text = "Guardar";
             this.btnSaveAndConnect.UseVisualStyleBackColor = true;
             this.btnSaveAndConnect.Click += new System.EventHandler(this.btnSaveAndConnect_Click);
             // 

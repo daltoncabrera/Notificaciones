@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,7 +55,7 @@ namespace ccpsd.notificaciones.core
         public int CrearNotificacion(NotificacionModel notiModel)
         {
             notiModel.Aplicacion = this.App;
-            return SendNotificacion(notiModel).Result;
+            return SendNotificacion(notiModel);
         }
 
         private NotificacionModel GetNotificacion(int notificacionId)
@@ -80,10 +79,10 @@ namespace ccpsd.notificaciones.core
 
         private void ConnectApi()
         {
-            Token = GetAPIToken(this.User, this.Pass, this.App, this.Key, this.Server).Result;
+            Token = GetAPIToken(this.User, this.Pass, this.App, this.Key, this.Server);
         }
 
-        private async Task<string> GetAPIToken(string userName, string password, string clientId, string secret, string apiBaseUri)
+        private string GetAPIToken(string userName, string password, string clientId, string secret, string apiBaseUri)
         {
             using (var client = new HttpClient())
             {
@@ -112,7 +111,7 @@ namespace ccpsd.notificaciones.core
                 //responseMessage.EnsureSuccessStatusCode();
 
                 //get access token from response body
-                var responseJson = await responseMessage.Content.ReadAsStringAsync();
+                var responseJson = responseMessage.Content.ReadAsStringAsync().Result;
                 var jObject = JObject.Parse(responseJson);
 
                 JToken tokenError = "";
@@ -136,7 +135,7 @@ namespace ccpsd.notificaciones.core
         }
 
 
-        async Task<int> SendNotificacion(NotificacionModel notiModel)
+        int SendNotificacion(NotificacionModel notiModel)
         {
 
             using (var client = new HttpClient())
@@ -148,17 +147,42 @@ namespace ccpsd.notificaciones.core
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + this.Token);
 
 
-                //PostAsyncmake request
-                var response = client.PostAsJsonAsync("api/Notificaciones/Create", notiModel).Result;
-                var notiCreated = await response.Content.ReadAsAsync<NotificacionModel>();
-                return notiCreated.NotificacionId.Value;
+
+                var content = new StringContent(
+                    Newtonsoft.Json.JsonConvert.SerializeObject(notiModel),
+                    Encoding.UTF8,
+                    "application/json");
+
+                var responseMessage = client.PostAsync("api/Notificaciones/Create", content).Result;
+
+                //get access token from response body
+                var responseJson = responseMessage.Content.ReadAsStringAsync().Result;
+                var jObject = JObject.Parse(responseJson);
+
+                JToken tokenError = "";
+                var hasError = jObject.TryGetValue("error", out tokenError);
+
+                if (hasError)
+                {
+                    JToken tokenMsgError = "";
+                    jObject.TryGetValue("error_description", out tokenMsgError);
+                    throw new Exception(string.Format("Error - {0}: {1}", tokenError, tokenMsgError));
+                }
+
+                var notiModelResult = Newtonsoft.Json.JsonConvert.DeserializeObject<NotificacionModel>(responseJson);
+
+                if (notiModelResult == null || !notiModelResult.NotificacionId.HasValue)
+                    throw  new Exception("Error creando notificacion");
+
+
+                return notiModelResult.NotificacionId.Value;// notiCreated.NotificacionId.Value;
             }
         }
 
 
 
 
-        async Task<string> GetRequest(string token, string apiBaseUri, string requestPath)
+        string GetRequest(string token, string apiBaseUri, string requestPath)
         {
             using (var client = new HttpClient())
             {
@@ -169,8 +193,8 @@ namespace ccpsd.notificaciones.core
                 client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 
                 //make request
-                HttpResponseMessage response = await client.GetAsync(requestPath);
-                var responseString = await response.Content.ReadAsStringAsync();
+                HttpResponseMessage response = client.GetAsync(requestPath).Result;
+                var responseString = response.Content.ReadAsStringAsync().Result;
                 return responseString;
             }
         }
